@@ -15,7 +15,7 @@ export default function Paid(){
 
 
 
-    const [searchParams,setSearchParams] = useSearchParams({name:'',email:'',age:'',course:'',status:'',course_format:'',course_type:''});
+    const [searchParams,setSearchParams] = useSearchParams({name:'',email:'',age:'',course:'',status:'',course_format:'',course_type:'',order:'_id'});
     // ,order:'_id'
 
     const nameQuery = searchParams.get('name') || '';
@@ -25,7 +25,7 @@ export default function Paid(){
     const statusQuery = searchParams.get('status') || '';
     const course_formatQuery = searchParams.get('course_format') || '';
     const course_typeQuery = searchParams.get('course_type') || '';
-    // const orderQuery = searchParams.get('order') || '';
+    const orderQuery = searchParams.get('order') || '';
 
 
 
@@ -46,10 +46,10 @@ export default function Paid(){
             status:searchParams.get('status'),
             course_format:searchParams.get('course_format'),
             course_type:searchParams.get('course_type'),
-            // order:searchParams.get('order')
+            order:searchParams.get('order')
         }))
 
-    },[query,nameQuery])
+    },[query,dispatch])
 
     const prevPage = () => {
 

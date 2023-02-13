@@ -10,20 +10,11 @@ const initialState={
 
 const getAll = createAsyncThunk(
     'paid/getAll',
-    async ({page,name,email,age,course,status,course_format,course_type})=>{
-            const {data} = await paidService.getAll(page,name,email,age,course,status,course_format,course_type)
+    async ({page,name,email,age,course,status,course_format,course_type,order})=>{
+            const {data} = await paidService.getAll(page,name,email,age,course,status,course_format,course_type,order)
             return data
     }
 );
-
-const getSearch = createAsyncThunk(
-    'paid/getSearch',
-    async ({page})=>{
-        const {data} = await paidService.getAll(page);
-        return data
-    }
-);
-
 
 
 const paidSlice = createSlice({
@@ -35,10 +26,6 @@ const paidSlice = createSlice({
             .addCase(getAll.fulfilled,(state, action) => {
                 state.paid = action.payload;
             })
-            .addCase(getSearch.fulfilled,(state, action) => {
-                state.search = action.payload;
-            })
-
     }
 
 }
@@ -46,8 +33,7 @@ const paidSlice = createSlice({
 const {reducer:paidReducer,actions} = paidSlice
 
 const paidActions = {
-    getAll,
-    getSearch
+    getAll
 }
 export {
     paidActions,

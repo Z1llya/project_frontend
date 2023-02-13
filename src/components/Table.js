@@ -17,7 +17,7 @@ export default function Table({data,search,setSearch}){
         <div>
             <table className="table">
                 <TableHead columns={columns} search={search} setSearch={setSearch}/>
-                <TableBody columns={columns} tableData={data} search={search}/>
+                <TableBody columns={columns} tableData={data}/>
             </table>
         </div>
     );
