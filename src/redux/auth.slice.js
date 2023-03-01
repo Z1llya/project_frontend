@@ -3,7 +3,7 @@ import {authServices} from "../services/auth-services";
 
 const initialState = {
     errors:null,
-    isAuth:null
+    isAuth:null,
 
 };
 
@@ -12,7 +12,6 @@ const login = createAsyncThunk(
     async ({user}, {rejectedWithValue})=>{
         try {
             const {data} = await authServices.login(user);
-            console.log(data);
             return data
 
         }catch (e){
@@ -20,6 +19,7 @@ const login = createAsyncThunk(
         }
     }
 );
+
 
 const authSlice = createSlice({
     name:'authSlice',
@@ -29,7 +29,6 @@ const authSlice = createSlice({
         builder
             .addCase(login.fulfilled,(state, action) => {
                 state.isAuth = true;
-                console.log(action.payload);
                 authServices.setTokens(action.payload)
             })
             .addDefaultCase((state, action) => {

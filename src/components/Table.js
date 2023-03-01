@@ -11,15 +11,20 @@ export default function Table({data,search,setSearch}){
         { label: "Status", accessor: "status" },
         { label: "Course_Format", accessor: "course_format" },
         { label: "Course_Type", accessor: "course_type" },
+        {label: "Manager", accessor: "manager"}
+
     ];
 
     return (
-        <div>
+
             <table className="table">
                 <TableHead columns={columns} search={search} setSearch={setSearch}/>
                 <TableBody columns={columns} tableData={data}/>
+
+
             </table>
-        </div>
+
     );
 }
+
 

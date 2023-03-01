@@ -6,7 +6,7 @@ export default function Header(){
     const navigate = useNavigate();
     return(
         <div>
-            <div><button onClick={()=>navigate('login')}>Login</button></div>
+            <div><button onClick={()=>navigate('login')}>Logout</button></div>
         </div>
     );
 }

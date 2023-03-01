@@ -2,6 +2,8 @@ import {useForm} from "react-hook-form";
 import {useDispatch} from "react-redux";
 import {authActions} from "../../redux/auth.slice";
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
+import {authServices} from "../../services/auth-services";
 
 export default function LoginForm(){
 
@@ -14,7 +16,7 @@ export default function LoginForm(){
     const submit = async (data) => {
         const {error} = await  dispatch(authActions.login({user:data}));
         if(!error){
-            navigate('/paid')
+            navigate('/paid');
         }
 
 

@@ -7,7 +7,8 @@ export default function TableHead({ columns,setSearch,search}){
     function sortOrder(e) {
         const element =e && e.target.getAttribute('data-item');
         if(element){
-            setSearch({order:`${sort}${element}`});
+            search.set("order",`${sort}${element}`)
+            setSearch(search);
             console.log(search.get('order'));
             if(sort==='-'){
                 setSort('+');
